@@ -19,7 +19,10 @@ var AppModel = Backbone.Model.extend({
     }, this);
 
     params.library.on('enqueue', function(song) {
+      console.log('applibrary got enqueue event')
+      // using backbone's collection add function
       songQueue.add(song);
+
       // if (songQueue.length === 1) {
       //   songQueue.playFirst();
       // }
