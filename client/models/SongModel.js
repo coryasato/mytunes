@@ -5,7 +5,6 @@ var SongModel = Backbone.Model.extend({
     url: '',
     title: '',
     artist: ''
-    // id: '_id'
   },
 
   play: function(){
