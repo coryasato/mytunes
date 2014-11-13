@@ -26,8 +26,11 @@
       $(function(){
         // set up model objects
         var library = new Songs(songData);
+        var sq = new SongQueue([]);
+        sq.fetch();
 
-        var app = new AppModel({library: library});
+        var app = new AppModel({library: library, songQueue: sq});
+        // console.log(a)
 
         // build a view for the top level of the whole app
         var appView = new AppView({model: app});
@@ -35,11 +38,8 @@
         // put the view onto the screen
         $('body').prepend(appView.render());
 
-        // var router = new Router(appView);
-        // Backbone.history.start();
-        //app.fetch();
         window.debug = {
-          settings: app.attributes.songQueue
+          songQueue: sq
         };
 
 
