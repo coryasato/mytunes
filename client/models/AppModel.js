@@ -39,6 +39,8 @@ var AppModel = Backbone.Model.extend({
       console.log('ended');
     }, this)
 
-  }
+  },
+
+  localStorage: new Backbone.LocalStorage('appModel-Storage')
 
 });

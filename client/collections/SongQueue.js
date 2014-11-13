@@ -3,6 +3,8 @@ var SongQueue = Songs.extend({
 
   model: SongModel,
 
+  localStorage: new Backbone.LocalStorage('playlist'),
+
   initialize: function(){
     this.on('add', function(song) {
       console.log('sq heard an add event')
