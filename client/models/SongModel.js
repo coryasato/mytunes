@@ -4,7 +4,14 @@ var SongModel = Backbone.Model.extend({
   defaults: {
     url: '',
     title: '',
-    artist: ''
+    artist: '',
+    count: 0
+  },
+
+  initialize: function() {
+    // console.log(this.toJSON())
+    this.id = md5(JSON.stringify(this.toJSON()));
+    // this.id = this.attributes['_id'];
   },
 
   play: function(){

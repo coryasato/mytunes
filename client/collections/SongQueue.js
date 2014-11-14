@@ -19,6 +19,8 @@ var SongQueue = Songs.extend({
     }, this);
 
     this.on('ended', function(song) {
+      var count = song.get('count');
+      song.set('count', count += 1);
       this.playNext(song);
     }, this);
 
@@ -28,7 +30,17 @@ var SongQueue = Songs.extend({
 
   },
 
+  // idGen: function() {
+  //   var id = 0;
+  //   return function() {
+  //     return ++id;
+  //   };
+  // },
+
   enqueue: function(song) {
+    // if (!song.get('id')) {
+    //   song.set('id', this.idGen()())
+    // }
     this.push(song);
     this.localStorage.create(song);
   },
