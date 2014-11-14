@@ -3,6 +3,8 @@ var SongQueueView = Backbone.View.extend({
 
   tagName: 'div',
 
+  className: 'col-xs-12 queue',
+
   initialize: function() {
     this.render();
 

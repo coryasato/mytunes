@@ -1,0 +1,49 @@
+body {
+  padding: 5%;
+  font-family: Helvetica;
+}
+
+audio {
+  width: 75%;
+  margin-bottom: 40px;
+}
+
+.library {
+  background: #f8f8f8;
+  border-radius: 10px;
+}
+
+.library > h2 {
+  padding: 3%;
+  background: rgba(165, 212, 250, 0.3);
+  border-radius: 10px;
+}
+
+.song {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-size: 18px;
+  border-bottom: 1px solid #555;
+}
+
+.artist {
+  padding-right: 2%;
+}
+
+.queue {
+  background: #f8f8f8;
+  border-radius: 10px;
+}
+
+.queue > h3 {
+  padding: 1%;
+}
+
+.queue-entry {
+  padding: 0.5%;
+}
+
+.queue-artist {
+  text-decoration: underline;
+  color: #777;
+}
