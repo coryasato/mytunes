@@ -27,7 +27,10 @@
         // set up model objects
         var library = new Songs(songData);
         var sq = new SongQueue([]);
+
+        // TODO: FIND OUT WHY WE CAN FETCH AND SAVE DUPLICATE SONGS IN LOCALSTORAGE
         sq.fetch();
+        console.log(sq)
 
         var app = new AppModel({library: library, songQueue: sq});
         // console.log(a)
@@ -37,12 +40,6 @@
 
         // put the view onto the screen
         $('body').prepend(appView.render());
-
-        window.debug = {
-          songQueue: sq
-        };
-
-
 
       });
     </script>

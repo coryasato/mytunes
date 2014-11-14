@@ -9,40 +9,43 @@ var SongQueue = Songs.extend({
 
     // TODO: ONLY FETCH AND SAVE FROM LOCALSTORAGE, USE HOT-SONGQUEUE FOR EVERYTHING ELSE
     this.on('add', function(song) {
-      // console.log('sq heard an add event')
+      // we don't need to call enqueue since our listener in AppModel will do that for us
+        // when it hears an enqueue event from a song that has been clicked on w/in our library
+
+      // this.enqueue(song);
       if (this.length === 1) {
         this.playFirst();
       }
-      this.push(song);
-      this.localStorage.create(song);
     }, this);
 
     this.on('ended', function(song) {
-      this.remove(song);
-      this.localStorage.destroy(song);
-      // console.log('sq heard an ended event')
-      if (this.length) {
-        this.playFirst();
-      }
-    }, this);
-
-    this.on('enqueue', function(song) {
-      // console.log('sq got enqueue event')
-      this.localStorage.create(song);
-      this.push(song);
-      // song.save();
+      this.playNext(song);
     }, this);
 
     this.on('dequeue', function(song) {
-      // console.log('sq heard a dequeue event')
-      this.remove(song);
-      this.localStorage.destroy(song);
+      this.dequeue(song);
     }, this);
 
+  },
+
+  enqueue: function(song) {
+    this.push(song);
+    this.localStorage.create(song);
+  },
+
+  dequeue: function(song) {
+    this.remove(song);
+    this.localStorage.destroy(song);
   },
 
   playFirst: function() {
     this.first().play();
   },
+
+  playNext: function(song) {
+    this.remove(song);
+    this.localStorage.destroy(song);
+    this.playFirst();
+  }
 
 });

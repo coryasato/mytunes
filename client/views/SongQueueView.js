@@ -6,6 +6,7 @@ var SongQueueView = Backbone.View.extend({
   initialize: function() {
     this.render();
 
+    // this allows us to rerender the view on any add/remove model change
     this.listenTo(this.collection, 'add remove', this.render);
   },
 
